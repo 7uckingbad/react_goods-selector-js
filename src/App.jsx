@@ -17,8 +17,10 @@ export const goods = [
 
 export const App = () => {
   const [selectedGood, setSelectedGood] = useState('Jam');
+
   const handleClear = () => setSelectedGood('');
   const handleRemove = () => setSelectedGood('');
+  const handleSelect = good => setSelectedGood(good);
 
   return (
     <main className="section container">
@@ -57,12 +59,12 @@ export const App = () => {
                     </button>
                   )}
 
-                  {good !== selectedGood && (
+                  {selectedGood === '' && (
                     <button
                       data-cy="AddButton"
                       type="button"
                       className="button"
-                      onClick={() => setSelectedGood(good)}
+                      onClick={() => handleSelect(good)}
                     >
                       +
                     </button>
